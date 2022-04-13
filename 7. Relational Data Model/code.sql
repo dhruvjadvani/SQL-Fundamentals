@@ -57,6 +57,24 @@ FK is used to create a many-to-one (one-to-many) relationship.*/
 
 /*
 
+/*
+Relationships
+There are relationships of one-to-one, one-to-many, and many-to-many types.
 
+one-to-one relationship (1-1) means that one tuple of the first relation can be associated with no more than one tuple of another relation. 
+The opposite is also true. For example, passport — citizen (one person can have only one passport and a passport refers to one person).
+
+one-to-many relationship (1-M) means that a tuple of the first relation can be associated with one or more tuples of the second relation, but the opposite is not true. 
+Any tuple of the second relation can be associated with only one tuple of the first relation. 
+For example, student — group (there can be many students in a group, but each student belongs to only one group).
+
+many-to-many (M-M) relationship means that any tuple of the first relation can be associated with one or more tuples of another relation. The opposite is also true. For example, student — discipline (each student studies many disciplines, each discipline can be studied by many students).
+It should also be noted that many-to-many relationships do not exist in RDM. It is split into two one-to-many relationships, so that an intermediate associative relation appears, which has two foreign keys as attributes that indicate the primary keys of the original relations.
+Any of the relationships described above can be identifying or non-identifying. A relationship is identifying if the foreign key of a subordinate relationship goes into (or becomes part of) its primary key. For example, the order number (PK of order relation) in the store is generated based on the customer number and the order date. The customer number is the PK for the customer relation. The order number is a composite PK of two attributes: customer number (also a foreign key) and order date.
+
+In a non-identifying relationship the foreign key relationship does NOT go to the primary key, for example, the Student-Group relationship discussed above.
+
+
+*/
 
 
