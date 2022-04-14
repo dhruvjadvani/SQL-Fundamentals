@@ -78,6 +78,11 @@ In a non-identifying relationship the foreign key relationship does NOT go to th
 */
 
 
-
+/*
+One of the main reasons why RDM is so popular is that there is a query language SQL with which you can easily interact with data. 
+Another reason is that it is based on a mathematical apparatus based on set theory. 
+For large data volume DBMS implementations based on other (usually simpler and less general) data models can be more scalable and performant than relational DBMS. 
+One other disadvantage of relational data model is that it's different from object data model and requires a translational layer that increases code complexity.
+*/
 
 
