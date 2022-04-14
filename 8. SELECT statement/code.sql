@@ -29,6 +29,11 @@ SELECT
   160*0.393701 AS "height in inches"
 ;
 
+/*
+QL is case insensitive (keywords may be written in any case), so SELECT, select, SeLeCt, and seLEct are all valid.
+However, it is most common to type keywords in uppercase to emphasize them and improve code readability.
+
+*/
 
 --general form
 SELECT val1 [AS name1], ..., valN [AS nameN];
