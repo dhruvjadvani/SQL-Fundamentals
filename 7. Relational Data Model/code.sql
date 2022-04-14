@@ -85,4 +85,15 @@ For large data volume DBMS implementations based on other (usually simpler and l
 One other disadvantage of relational data model is that it's different from object data model and requires a translational layer that increases code complexity.
 */
 
+/*
+Match the relational database elements.
 
+ Report a typo
+ Choose one option for each row
+            Column |Row	| Table |	Relationship
+Attribute	    Y
+Tuple	               Y
+One-to-many	                       Y
+Entity	                  Y 
+
+*/
