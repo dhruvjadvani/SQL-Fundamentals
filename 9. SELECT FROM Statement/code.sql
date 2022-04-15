@@ -11,7 +11,9 @@ FROM
     weather
 ;
 
+--The type of data extraction when you select a subset of table columns is called projection.
 
+--Here's a general schema for such queries: keyword SELECT, list of column names with optional aliases, keyword FROM, table name, and a semicolon to mark the end of the statement:
 
 SELECT
     col1 [AS alias1], ..., colN [AS aliasN]  
