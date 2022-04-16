@@ -12,4 +12,10 @@ COUNT
 SUM
 */
 
+SELECT MAX(price)
+FROM stocks;
+
+SELECT SUM(yesterday_deals)
+FROM stocks;
+
 
