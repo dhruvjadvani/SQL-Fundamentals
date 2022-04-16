@@ -48,3 +48,19 @@ COUNT(*)
 
 
 SELECT MAX(current_location) FROM agents;
+
+
+
+--Write a query to compute minimum, average and maximum street lengths in the table streets.
+SELECT 
+    MIN(length) AS min_length,
+    AVG(length) AS avg_length,
+    MAX(length) AS max_length
+FROM
+    streets;
+
+ 
+
+
+
+
