@@ -19,3 +19,29 @@ SELECT SUM(yesterday_deals)
 FROM stocks;
 
 
+SELECT 
+    AVG(price) AS avg_price,
+    AVG(yesterday_deals) AS avg_deals 
+FROM 
+    stocks 
+WHERE 
+    price > 40;
+    
+    
+    
+    
+--When working with large amounts of data, you might be interested in omitting all duplicate values.
+--To do that, place the DISTINCT keyword inside the brackets of your aggregate function:    
+
+SELECT COUNT(DISTINCT yesterday_deals)
+FROM stocks;    
+
+
+/*
+A regular call of the COUNT function with a column name as an argument will simply count the total amount of values in the column. 
+If you call COUNT with an asterisk, then you're telling the function to count all rows that exist in the table.
+The final result won't be affected by the particular types of columns or the values that their cells store.*/
+
+--All aggregate functions except COUNT(*) ignore the NULL values.
+
+COUNT(*)
