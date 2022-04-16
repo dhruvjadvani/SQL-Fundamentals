@@ -67,5 +67,7 @@ SELECT
 FROM 
     games
 WHERE 
-    users_rating > 8.0 OR critics_rating > 8.0;
+    users_rating >= 8.0 AND critics_rating >= 8.0;
+
+
 
