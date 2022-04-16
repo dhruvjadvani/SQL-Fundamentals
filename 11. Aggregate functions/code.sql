@@ -60,7 +60,12 @@ FROM
     streets;
 
  
-
-
-
+--Write a query that selects reviews' average users' and critics' ratings from the table games with that ratings are higher or equal to 8 points.
+SELECT
+    AVG(users_rating) AS avg_user,
+    AVG(critics_rating) AS avg_critics
+FROM 
+    games
+WHERE 
+    users_rating > 8.0 OR critics_rating > 8.0;
 
