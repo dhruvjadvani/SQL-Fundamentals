@@ -45,3 +45,6 @@ The final result won't be affected by the particular types of columns or the val
 --All aggregate functions except COUNT(*) ignore the NULL values.
 
 COUNT(*)
+
+
+SELECT MAX(current_location) FROM agents;
