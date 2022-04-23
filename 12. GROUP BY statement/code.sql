@@ -67,3 +67,27 @@ GROUP BY column_name [, list_of_other_columns]
 
     
 
+
+--Write a grouping query for table tutors that for each tutor returns their name and minimum group capacity. Exclude minimums that equal to or below 30. Do not apply any ordering.
+
+CREATE TABLE tutors (
+  group_id INTEGER,
+  tutor_name VARCHAR(15),
+  course VARCHAR(50),
+  capacity INTEGER
+);
+
+INSERT INTO tutors (group_id, tutor_name, course, capacity) VALUES
+(12,	"Donald Meier",	"Algebra 101",	50),
+(14,	"Becky Stout",	"Nuclear Physics 101",	25),
+(22,	"Laura Gibbs",	"Renaissance literature 360",	30),
+(36,	"Donald Meier",	"Algebra 301",	40),
+(23,	"Becky Stout",	"Information retrieval 450",	30),
+(38,	"Laura Gibbs",	"Renaissance literature 360",	40);
+
+
+--ans:
+SELECT tutor_name, min(capacity)
+FROM tutors
+GROUP BY tutor_name
+HAVING min(capacity) > 30;
