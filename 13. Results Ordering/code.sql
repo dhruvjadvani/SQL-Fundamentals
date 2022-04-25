@@ -17,3 +17,74 @@ ORDER BY
     price_per_night 
 ;
 
+
+
+SELECT
+    hotel_id, 
+    hotel_name, 
+    price_per_night,
+    price_for_early_check_in,
+    rating, 
+    stars
+FROM 
+    hotels
+ORDER BY
+    price_per_night*2 + price_for_early_check_in
+;
+
+
+
+--Ascending and descending order
+--Ascending means increasing 1 2 3 4 5 6...
+--Decending means decreasing 5 4 3 2 1 
+--The sorting is based on the definition of the comparison operator (<) for the expression type. 
+--It can specify whether greater or smaller values should be placed higher in the list. Let's consider an example:
+
+SELECT
+    hotel_id, 
+    hotel_name, 
+    price_per_night,
+    price_for_early_check_in,
+    rating, 
+    stars
+FROM 
+    hotels
+ORDER BY
+    rating DESC
+;
+
+--Multiple expressions
+--Let's write a query that sorts hotels by both price and rating:
+
+SELECT
+    hotel_id, 
+    hotel_name, 
+    price_per_night,
+    price_for_early_check_in,
+    rating, 
+    stars
+FROM 
+    hotels
+ORDER BY
+    rating DESC,
+    price_per_night*2 + price_for_early_check_in 
+;
+
+
+/*Syntax
+If you sort the resulting rows by an expression that defines a result attribute, you can address it in the ORDER BY clause by a column alias or number.
+For example, in the query below, we sort rows by total price and rating:*/
+
+SELECT
+    hotel_name, 
+    price_per_night*2 + price_for_early_check_in AS total_price,
+    rating, 
+    stars
+FROM 
+    hotels
+ORDER BY
+    total_price, 3 DESC
+;
+
+
+
