@@ -67,5 +67,97 @@ FROM table1 [AS a]
 INNER JOIN table2 [AS b]
     ON table1.id = table2.id;
     
-    
+ /*
+Ordering results of INNER JOIN
+Returning to our practical example, imagine you would like to know what pet belongs to what character. To do this, we need to execute the following query:
+*/
+SELECT character_name, pet_species 
+FROM character 
+INNER JOIN pet
+    ON character.character_id = pet.character_id
+ORDER BY character.character_name;
  
+
+/*
+The resulting table from this query will be the following:
+
+character_name	    pet_species
+Daenerys Targaryen	dragon "Drogo"
+Daenerys Targaryen	dragon "Rhaegal"
+Daenerys Targaryen	dragon "Viserion"
+Harry Potter	    owl
+Hermione Granger	cat
+Voldemort	        snake
+
+
+However, as you can see, not all characters were included in the result. 
+This happened because some records in the left table didn’t have matches in the right table.
+In our example not all characters had pets. To fix this problem and include all the characters in the resulting table,
+we can use LEFT JOIN. We've combined information from two tables by matching rows where character_id was the same in the two tables.
+*/
+SELECT character_name, pet_species 
+FROM character 
+LEFT JOIN pet
+    ON character.character_id = pet.character_id
+ORDER BY character.character_name;
+
+
+
+/*
+character_name	pet_species
+Argus Filch	NULL
+Daenerys Targaryen	dragon "Drogo"
+Daenerys Targaryen	dragon "Rhaegal"
+Daenerys Targaryen	dragon "Viserion"
+Harry Potter	owl
+Hermione Granger	cat
+Severus Snape	NULL
+Tyrion Lannister	NULL
+Voldemort	snake
+*/
+
+
+/*
+So far we've worked only with two tables, but we can also join together multiple tables. 
+For example, we also want to know which universe our characters come from. As you can see, 
+values that didn’t have matches in the right table were assigned with NULL values.
+*/
+SELECT c.character_name, p.pet_species, u.universe_name 
+FROM universe AS u
+LEFT JOIN character as c
+    ON u.universe_id = c.universe_id
+LEFT JOIN pet AS p
+    ON p.character_id = c.character_id
+    
+/*
+character_name	    pet_species	       universe_name
+Harry Potter	     owl	           Harry Potter
+Severus Snape	     NULL	           Harry Potter
+Voldemort	         snake	           Harry Potter
+Hermione Granger	 cat	           Harry Potter
+Tyrion Lannister	 NULL	           Game of Thrones
+Daenerys Targaryen	dragon "Drogo"	   Game of Thrones
+Daenerys Targaryen	dragon "Rhaegal"   Game of Thrones
+Daenerys Targaryen	dragon "Viserion"  Game of Thrones
+Argus Filch	NULL	Harry Potter
+
+*/
+
+/*
+We should also mention that it is not mandatory to use JOIN if you want to connect tables.
+You can use the WHERE condition to get the same result. Please consider the script below. It would give an identical result to the one above:
+*/
+SELECT table1.col_name1, table2.col_name2
+FROM table1 [AS a], table2 [AS b]
+    WHERE table1.id = table2.id;
+    
+
+--To join multiple tables, follow this general template:
+
+SELECT val1 [AS name1], ..., valN [AS nameN]
+FROM table1 
+[type_of_join] JOIN  table2 
+    ON table1.col_name_table1 = table2.col_name_table2
+[type_of_join] JOIN table3
+    ON table2.col_name_table2 = table3.col_name_table3;
+    
