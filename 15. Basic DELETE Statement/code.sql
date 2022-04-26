@@ -5,3 +5,9 @@ Delete selected rows
 You can also use DELETE FROM statement to delete only selected rows from a table.
 
 
+DELETE FROM table_name 
+
+
+DELETE FROM table_name 
+WHERE logical_expression
+
