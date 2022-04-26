@@ -207,3 +207,32 @@ INNER JOIN orders
     ON users.id = orders.user_id
 INNER JOIN groceries
     ON orders.grocery_id = groceries.id;
+
+
+
+
+--Movies database
+/*
+Suppose you need to create a database for all the movies and their reviews (like IMDB).
+
+In this database, the movies table contains some information about the movies (id: INT, title: VARCHAR(40)), and the reviews table contains anonymous movie reviews: reviews (movie_id: INT, score: INT, feedback: VARCHAR(1000)). The score is a value from 1 to 10.
+
+Write a query that returns pairs of movie names and scores (title, score) for all the movies that have at least one review. The result should be ordered alphabetically by the names, and the scores should be in ascending order.
+
+Here is an example output:
+
+title	score
+Forrest Gump	8
+Forrest Gump	10
+Interstellar	9
+Seven Samurai	5
+Seven Samurai	7
+Seven Samurai	10
+
+*/
+
+SELECT movies.title AS title, reviews.score AS score
+FROM movies
+INNER JOIN reviews
+    ON movies.id = reviews.movie_id
+ORDER BY title, score ASC;
