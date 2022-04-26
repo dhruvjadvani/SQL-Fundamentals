@@ -3,6 +3,7 @@ When you query data, SQL does not provide any default order of rows in the query
 To specify the order of the resulting rows, you should use the ORDER BY clause in the query.
 */
 
+--By default, the order is assumed to be ascending, which is why we omitted the keyword ASC in the previous examples of queries.
 
 SELECT
     hotel_id, 
