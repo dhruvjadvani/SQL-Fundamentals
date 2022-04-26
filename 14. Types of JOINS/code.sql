@@ -161,3 +161,49 @@ FROM table1
 [type_of_join] JOIN table3
     ON table2.col_name_table2 = table3.col_name_table3;
     
+
+
+
+
+/*
+Books in a library database
+You need to create a database for a library. There are two tables in it:
+
+books (id INT, title VARCHAR(40), author_id INT)
+authors (id INT, name VARCHAR(40))
+Write a query that returns the titles of all the books written by 'Isaac Asimov'.
+
+Note, that for simplicity every book has only one author here. In a real situation, a book may have several authors.
+
+*/
+
+SELECT books.title as titles
+FROM books
+INNER JOIN authors
+    ON books.author_id = authors.id
+WHERE authors.name = 'Isaac Asimov';
+
+
+/*
+Online orders
+There is an online store where people can order some groceries. It has a database consisting of three tables that contain all the data about the orders:
+
+users (id INT, email VARCHAR(50))
+groceries (id INT, name VARCHAR(50))
+orders (user_id INT, grocery_id INT)
+Write a query that returns all groceries (name) ordered by a particular user (email). The order of rows is not important.
+
+email	        name
+john@gmail.com	milk
+user@gmail.com	milk
+vikki@gmail.com	cheese
+user@gmail.com	cheese
+vikki@gmail.com	soda
+*/
+
+SELECT users.email as email, groceries.name 
+FROM users
+INNER JOIN orders
+    ON users.id = orders.user_id
+INNER JOIN groceries
+    ON orders.grocery_id = groceries.id;
