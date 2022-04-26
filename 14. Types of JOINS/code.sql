@@ -236,3 +236,40 @@ FROM movies
 INNER JOIN reviews
     ON movies.id = reviews.movie_id
 ORDER BY title, score ASC;
+
+
+
+--Online education
+/*
+Imagine you are developing a database for an online education platform. It has three key tables:
+
+courses (id INT, title VARCHAR(50))
+learners (id INT, name VARCHAR(50))
+enrollments (learner_id INT, course_id INT)
+Write a query that returns all the users and the courses they've enrolled in. The query has to mention the learners that haven't enrolled in any courses.
+
+Here is an output example:
+
+name	             title
+Thomas C. Adams	    SQL in practice
+Betty W. Bishop	    Psychology for beginners
+Betty W. Bishop	    SQL in practice
+Barry G. Jones	    Learn programming fundamentals
+Barry G. Jones	    SQL in practice
+Patrick W. Hamrick	Learn programming fundamentals
+Sara C. Brundage	NULL
+
+
+The value NULL means that a learner didn't join any course.
+*/
+
+SELECT learners.name AS name, courses.title AS title
+FROM learners
+LEFT JOIN enrollments
+    ON learners.id = enrollments.learner_id
+LEFT JOIN courses
+    ON enrollments.course_id = courses.id
+
+
+
+
