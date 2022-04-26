@@ -18,7 +18,7 @@ ORDER BY
 ;
 
 
-
+--ou may sort the rows by expressions as well. For example, in the query below, we order hotels by price for two nights with an early check-in:
 SELECT
     hotel_id, 
     hotel_name, 
