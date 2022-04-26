@@ -125,3 +125,31 @@ FROM
    Titanic_passengers
 ORDER BY  
     passenger_class ASC, age;
+    
+    
+    
+    
+    
+    
+    
+/*
+A table is defined by the following statement:
+
+CREATE TABLE hotels (
+    hotel_name VARCHAR(100), 
+    price_per_night DECIMAL(10,2),
+    price_for_early_check_in DECIMAL(10,2),
+    rating FLOAT, 
+    stars INTEGER);
+Write a query that selects all the hotels sorted by stars(lowest at the beginning), rating (poor at the end), and total price for 5 nights with early check-in (cheapest at the beginning).
+
+
+*/
+
+
+
+SELECT * FROM hotels
+ORDER BY 
+    stars ASC,
+    rating DESC,
+    price_per_night * 5 + price_for_early_check_in ASC;
