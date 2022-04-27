@@ -28,3 +28,57 @@ Pasta Inc	              pasta@inc.com	85055	NULL
 */
 
 
+/*
+INSERT INTO SELECT with WHERE
+When we use the INSERT INTO SELECT statement, we can use WHERE in the nested SELECT query.
+
+Now let's add information from the table suppliers with columns supplier VARCHAR(40), city VARCHAR(20), supplier_email VARCHAR(45) and zip_code INT:
+
+supplier	  city	supplier_email	ZIP_code
+Tomato Inc	York	tomato@inc.uk	  01904
+Potato Inc	London	potato@inc.uk	53342
+
+
+Say we need to add only the information about Tomato Inc:
+*/
+
+INSERT INTO users
+SELECT 
+    supplier, 
+    supplier_email,
+    zip_code,
+    city 
+FROM 
+    suppliers
+WHERE
+    supplier = 'Tomato Inc'; 
+    
+/*
+Here we should reorder columns in the SELECT statement or the INSERT INTO statement because the order of columns doesn't match.
+
+After the query execution we will have a new row in the table users:
+
+user	             user_email	       zip_code	  city
+Tadfield Cinema	tadf@cinema.com	      56567	  Tadfield
+Astoria hotel	hotelastoria@hotel.com	99501	  NULL
+Pasta Inc	    pasta@inc.com	          85055   NULL
+Tomato Inc	  tomato@inc.uk	          01904	  York
+
+Notice that here the types of columns user_email and supplier_email aren't the same: VARCHAR(50) for user_email and VARCHAR(45) for supplier_email. 
+We can transfer data because these types are compatible, so remember to check whether the types are compatible in your case, because if not, you can get an error.
+*/
+
+--to transfer data from one table to another, use this query template:
+
+INSERT INTO table1 (column_1, column_2, ..., column_n)
+SELECT 
+    column_1,
+    column_2,
+    ...,
+    column_n 
+FROM 
+    table2
+WHERE 
+    condition; 
+
+
