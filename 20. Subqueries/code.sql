@@ -220,4 +220,36 @@ WHERE
     stockholder_id = (SELECT id FROM stockholders where name = "Henry Richards");
  
  
+ --Passed exam
+ /*
+ Delete from the students table all the students who got less than the average percentage of correct answers during the exam.
+
+students
+
+id	name
+1	Anne Boleyn
+2	Tom King
+3	Harley Jones
+4	Ben Sparrow
+exam_results
+
+student_id	percentage
+1	100
+2	90
+3	45
+4	34
+Hint: To check if the value is in the set of results you can use SQL IN operator, for example:
+
+WHERE value IN (SELECT value FROM table)
+Hint: Do not forget the SELECT query clause order, you can check it in the corresponding topic section.
+
+*/
+ 
+ 
+ DELETE FROM students
+WHERE id in (SELECT student_id FROM exam_results AS er WHERE percentage < (SELECT AVG(percentage) FROM exam_results))
+ 
+ 
+ 
+ 
  
