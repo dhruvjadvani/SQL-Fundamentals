@@ -291,3 +291,23 @@ This query will return this row:
 name	city
 Eve Comer	NULL
 */
+
+
+
+--Select names of all students from Dublin, London, or Birmingham from table students.
+SELECT name FROM students
+WHERE city IN ('Dublin','London','Birmingham');
+
+
+--Select all names of employees whose salary is between the range of 5000 and 7000 from given table employees.
+SELECT name FROM employees
+WHERE salary BETWEEN 5000 AND 7000;
+
+
+--Select personal codes of students whose last names starts with letter B from given table students.
+SELECT personal_code FROM students
+WHERE last_name LIKE 'B%';
+
+
+
+
