@@ -188,6 +188,36 @@ WHERE age = (SELECT MAX(age) FROM persons);
  
  
  
+/*
+ Henry Richards received some dividends. Select the sum of his dividends accrual using the two following tables: stockholders and dividends.
+
+The stockholders table has columns id(INT), name(VARCHAR(20)):
+
+id	name
+1	Henry Richards
+2	Anna Romanoff
+3	Tom Cavil
+ 
+The dividends table has columns accrual(INT), stockholder_id(INT):
+
+accrual	stockholder_id
+500      	1
+34	       3
+6	        1
+Use a query with a subquery for this task!
+
+Hint: Do not use aliases when making a request. Such a request is difficult to verify.
+
+Hint: Don't forget to add spaces to the query when specifying the meaning of the names.
+ For example, name = 'Henry Richards' is correct while name='Henry Richards' is not.
+
+Hint: Do not forget the SELECT query clause order, you can check it in the corresponding topic section.
+ 
+ */
+ 
+ SELECT SUM(accrual) FROM dividends
+WHERE
+    stockholder_id = (SELECT id FROM stockholders where name = "Henry Richards");
  
  
  
