@@ -70,4 +70,83 @@ If we use a subquery along with comparison operators and our subquery returns mo
  This doesn't mean that you can't use the multiple-row subquery that will return one or more rows, just use a multiple-row comparison operator, such as IN and ANY.
  */
  
+ SELECT *, 
+    (SELECT 
+         name 
+     FROM 
+         users_info 
+     WHERE 
+         username = registered_users.username) AS name 
+FROM
+    registered_users
+ 
+ 
+ 
+ 
+ SELECT 
+    id,
+    product 
+FROM
+    new_orders newor 
+WHERE unit_price < (
+    SELECT 
+        AVG(unit_price) 
+    FROM 
+        new_orders
+    WHERE 
+        product_category = newor.product_category);
+ 
+ 
+ 
+ 
+ --Subqueries nested in the UPDATE statement
+ UPDATE
+    students 
+SET
+    exams_passed = TRUE 
+WHERE 
+    name in (
+        SELECT
+            name
+        FROM
+            exam_results 
+        WHERE
+            math_exam_mark >= 18
+            AND english_exam_mark >= 18
+        ); 
+ 
+ 
+ 
+ UPDATE
+    students 
+SET
+    scholarship = (
+        SELECT 
+            MIN(scholarship)
+        FROM students
+    ) 
+WHERE
+    exam_passed = FALSE; 
+ 
+ 
+ 
+ --Subqueries nested in the INSERT statement
+ INSERT INTO employees 
+VALUES (
+    'Tomas Hedwig', 
+    (SELECT salary FROM employees WHERE name = 'Ann Reed'), 
+    (SELECT id FROM departments WHERE department = 'PR')
+)
+ 
+ 
+ 
+ 
+ DELETE FROM orders
+WHERE customer_id = (SELECT customer_id FROM customers WHERE name = 'Ann Smith')
+ 
+ 
+ 
+ 
+ 
+ 
  
