@@ -144,8 +144,47 @@ VALUES (
  DELETE FROM orders
 WHERE customer_id = (SELECT customer_id FROM customers WHERE name = 'Ann Smith')
  
+--New student
+-- Add to the new_students table a student named Carol Tomas who is in the same grade as Anna Phillips. Table students looks as follows:
+/*
+name	        grade
+Anna Phillips	2
+Tom Basil	    3
+Nancy Smith	  6
+ 
+ Table new_students has the same columns name and grade.
+
+Use a query with a subquery for this task!
+
+Hint: Do not use aliases when making a request. Such a request is difficult to verify.
+
+Hint: Don't forget to add spaces to the query when specifying the meaning of the names.
+ For example, name = 'Anna Phillips' is correct while name='Anna Phillips' is not.
+
+Hint: Do not forget the SELECT query clause order, you can check it in the corresponding topic section.
+*/
+
+ 
+ INSERT INTO new_students (name, grade)
+VALUES ('Carol Tomas', 
+       (SELECT grade from students WHERE name = "Anna Phillips")
+       );
  
  
+ --The oldest one
+ /*
+ elect all rows from the persons table with the maximum age.
+
+first_name	last_name	age
+Lucy           	Maud	35
+Tom	         Edwards	27
+Ann	      Montgomery	30
+Janis           	Lyn	35
+ 
+*/
+ 
+ SELECT * FROM persons
+WHERE age = (SELECT MAX(age) FROM persons);
  
  
  
