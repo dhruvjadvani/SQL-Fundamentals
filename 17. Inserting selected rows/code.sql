@@ -82,3 +82,18 @@ WHERE
     condition; 
 
 
+--Orders
+/*Copy all data from the table new_orders with columns order_no INT, customer VARCHAR(40) and city VARCHAR(40):
+
+order_no	customer	city
+47546	  Frank Smith	Tadfield
+
+to the table orders (to columns order_no INT, customer VARCHAR(40) and city VARCHAR(40) respectively):
+
+order_no	customer	city	priority
+46568	   Tom Rogers	Redfield	1
+
+*/
+
+INSERT INTO orders(order_no, customer, city)
+SELECT * FROM new_orders;
