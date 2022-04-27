@@ -15,4 +15,16 @@ user	user_email	zip_code	city
 Tadfield Cinema	tadf@cinema.com	56567	Tadfield
 */
 
+INSERT INTO users (user, user_email, zip_code) 
+SELECT * FROM customers; 
+
+/*
+When we execute this query, our table users will look as following:
+
+user	              user_email	     zip_code	city
+Tadfield Cinema	tadf@cinema.com	     56567	Tadfield
+Astoria hotel	hotelastoria@hotel.com	99501	NULL
+Pasta Inc	              pasta@inc.com	85055	NULL
+*/
+
 
