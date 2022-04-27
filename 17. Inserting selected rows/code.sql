@@ -97,3 +97,24 @@ order_no	customer	city	priority
 
 INSERT INTO orders(order_no, customer, city)
 SELECT * FROM new_orders;
+
+
+--New job
+/*
+Copy the data about John Marley from the table sellers:
+
+name	surname	seller_email
+Tom	     Smith	tomsmith@sale.uk
+John	Marley	johnmarley@sale.uk
+
+to the table managers:
+
+name	surname	manager_email
+Ann	     Tomas	anntomas@sale.uk
+You should copy name VARCHAR(20), surname VARCHAR(20) and seller_email VARCHAR(40) to name VARCHAR(20), surname VARCHAR(20) and manager_email VARCHAR(50) respectively.
+*/
+
+INSERT INTO managers(name, surname, manager_email)
+SELECT * FROM sellers
+WHERE name = 'John' && surname = 'Marley';
+
