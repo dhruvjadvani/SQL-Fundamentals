@@ -118,3 +118,22 @@ INSERT INTO managers(name, surname, manager_email)
 SELECT * FROM sellers
 WHERE name = 'John' && surname = 'Marley';
 
+
+--Only names
+/*
+Copy only the names of developers from the table developers with columns name VARCHAR(20), surname VARCHAR(15) and position VARCHAR(40):
+
+name	surname	position
+Tamara	Chavez	middle developer
+Nikolay	Zimin	junior developer
+to the table employees with columns last_name VARCHAR(20), first_name VARCHAR(20) and department VARCHAR(40):
+
+last_name	first_name	department
+Chris	       Tomas	HR
+You should copy data from surname to last_name and from name to first_name.
+*/
+
+INSERT INTO employees(first_name, last_name)
+SELECT name, surname FROM developers;
+
+
