@@ -137,8 +137,11 @@ SELECT EXTRACT(YEAR FROM '2021-01-31');
 --Calculate the difference between the two dates: '2018-11-11' and '2030-10-25'.
 SELECT DATEDIFF('2030-10-25',  '2018-11-11');
 
+--What time is it
+--Get the current time.
 
-
+--Be careful: only get the time and use proper MySQL function!
+SELECT CURTIME();
 
 
 
