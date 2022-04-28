@@ -182,6 +182,19 @@ CREATE TABLE employees (
     CHECK (age > 16) 
 );
 
+--All cats are unique
+--Add a named UNIQUE constraint uq_names to the column 'name' in the table cats.
+
+ALTER TABLE cats
+ADD CONSTRAINT uq_names UNIQUE (name);
+
+
+--We need furniture
+--Add a default value 'chair' to the column 'type' of the table furniture.
+
+
+ALTER TABLE furniture
+ALTER type SET DEFAULT 'chair';
 
 
 
