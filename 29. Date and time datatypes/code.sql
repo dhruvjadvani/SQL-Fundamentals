@@ -128,6 +128,16 @@ SET time_zone = timezone;
 SELECT ADDDATE('2045-01-15', 27);
 
 
+--New Year
+--Extract the year from the date '2021-01-31'.
+SELECT EXTRACT(YEAR FROM '2021-01-31');
+
+
+--Date gap
+--Calculate the difference between the two dates: '2018-11-11' and '2030-10-25'.
+SELECT DATEDIFF('2030-10-25',  '2018-11-11');
+
+
 
 
 
