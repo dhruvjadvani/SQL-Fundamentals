@@ -116,6 +116,15 @@ ALTER TABLE schoolkids
 DROP PRIMARY KEY;
 
 
+--Company clients
+--Create an unnamed primary key on the client_id column of the table clients. The column client_id is UNIQUE and NOT NULL.
+
+ALTER TABLE clients
+ADD PRIMARY KEY (client_id);
+
+
+
+
 
 
 
