@@ -67,8 +67,27 @@ WHERE
     title IN ('Bridges', 'Ship Simulator 2');
 
 
+--Agents
+/*
+Here you see the table agents with important data about key agents of the International Security Agency:
+
+code_number	current_location	citizenship	knows_languages	missions
+008	                Mexico	         UK	          4	         20
+IJ655	            London	         China	      3	          7
+IL7T	            Sevilla	         UK	          2	          5
+006	                Brest	         France	      2	          50
+BV11	            Montevideo	     Argentina	  8	          8
+A while ago, all experienced agents (those with more than 10 completed missions and proficiency in more than 3 languages) were ordered to move to Istanbul. 
+Their new mission in Turkey was a success. Write a query to change the table accordingly.
+*/
 
 
+UPDATE agents
+SET 
+    current_location = "Istanbul",
+    missions = missions + 1
+WHERE
+    missions > 10 AND knows_languages > 3;
 
 
 
