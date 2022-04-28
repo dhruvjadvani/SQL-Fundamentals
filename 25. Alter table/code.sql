@@ -130,6 +130,14 @@ MODIFY COLUMN column_name NEWDATATYPE;
 ALTER TABLE table_name
 CHANGE old_column_name new_column_name NEWDATATYPE; 
 
+--Types
+--For the table students, change the type of the column personal_number from VARCHAR(20) to INT.
+
+ALTER TABLE students 
+MODIFY COLUMN personal_number INT;
+
+
+
 
 
 
