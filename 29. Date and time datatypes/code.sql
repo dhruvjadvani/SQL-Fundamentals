@@ -98,9 +98,34 @@ SELECT ADDDATE(CURDATE(), 10);
 
 
 --The date subtraction works similarly. Let's subtract 2 years from the date '1996-11-30':
+SELECT DATE_SUB('1996-11-30', INTERVAL 2 YEAR);
+--As the query result, we will get '1994-11-30'.
 
 
 
+/*
+Time zone support
+There are a lot of time zones around the world, so sometimes we need to change the timezone of the date and time values.
+
+In MySQL, to convert dates from one time zone to another, you can use CONVERT_TZ (value, from_time_zone, to_time_zone). 
+As a timezone, you can use both named time zones such as 'Europe/Helsinki' or 'UTC' or offsets in the inclusive range from '-12:59' to '+13:00'. 
+You can also use the system time zone using keyword 'SYSTEM'.
+
+
+For example, the query below will convert the given date and time from the 'UTC' time zone to the 'US/Eastern' timezone:
+*/
+
+
+SELECT CONVERT_TZ('2008-05-15 12:00:00','UTC','US/Eastern');
+
+--You can also set the time zone per session using the following query:
+
+SET time_zone = timezone;
+
+
+--Back to the Future
+--Use SQL to get the date that will be in 27 days from '2045-01-15'.
+SELECT ADDDATE('2045-01-15', 27);
 
 
 
